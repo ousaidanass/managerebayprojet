@@ -1,0 +1,1 @@
+web: gunicorn managerebayapp.wsgi --log-file -

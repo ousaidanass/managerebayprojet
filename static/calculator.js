@@ -1,21 +1,40 @@
 'use strict';
-let prixvente = document.getElementById('prixvente');
-let fraislivraisonme = document.getElementById('fraislivraisonme');
-let coutarticle = document.getElementById('coutarticle');
-let fraislivraison = document.getElementById('fraislivraison');
-let quantitvendu = document.getElementById('quantitvendu');
-let fraiss = document.getElementById('fraiss');
-let benefise = document.getElementById('benefise');
-let booton = document.getElementById('booton');
+var prixvente = document.getElementById('prixvente');
+var fraislivraisonme = document.getElementById('fraislivraisonme');
+var coutarticle = document.getElementById('coutarticle');
+var fraislivraison = document.getElementById('fraislivraison');
+var quantitvendu = document.getElementById('quantitvendu');
+var fraiss = document.getElementById('fraiss');
+var benefise = document.getElementById('benefise');
+var booton = document.getElementById('booton');
+var tva = document.getElementById('tva');
 
-function VersementEbay(){
-    let pourcentagecalc1 = (parseFloat(prixvente.value) + parseFloat(fraislivraisonme.value)) * 10;
+
+function virguleverspoint(){
+    let prixvente_ = prixvente.value.replace(",", ".");
+    let fraislivraisonme_ = fraislivraisonme.value.replace(",", ".");
+    let coutarticle_ = coutarticle.value.replace(",", ".");
+    let fraislivraison_ = fraislivraison.value.replace(",", ".");
+    let tva_ = tva.value.replace(",", ".");
+    return [prixvente_, fraislivraisonme_, coutarticle_, fraislivraison_, tva_];
+}
+
+
+function VersementEbay(_prixvente_, _fraislivraisonme_){
+    let pourcentagecalc1 = (parseFloat(_prixvente_) + parseFloat(_fraislivraisonme_)) * 10;
     let pourcentagecalc =  parseFloat(pourcentagecalc1) / 100;
-    let versementebay = parseFloat(prixvente.value) + parseFloat(fraislivraisonme.value) - pourcentagecalc - 0.35;
+    let versementebay = parseFloat(_prixvente_) + parseFloat(_fraislivraisonme_) - pourcentagecalc - 0.35;
     return versementebay;
 }
 
+function tvatoeuro(_coutarticle_, _fraislivraison_, _tva_){
+    return ((parseFloat(_coutarticle_) + parseFloat(_fraislivraison_) ) * parseFloat(_tva_)) / 100;
+}
+
 booton.onclick = function(){
-    let benefisse = (VersementEbay() - (parseFloat(coutarticle.value) + parseFloat(fraislivraison.value))) * parseFloat(quantitvendu.value);
-    benefise.innerHTML = 'BÉNÉFICE TOTAL with Color: ' + '<span style="color: red>"' + parseFloat(benefisse).toFixed(3) + '</span>';
+    var [_prixvente_, _fraislivraisonme_, _coutarticle_, _fraislivraison_, _tva_] = virguleverspoint();
+    let benefisse = (VersementEbay(_prixvente_, _fraislivraisonme_) - (parseFloat(_coutarticle_) + tvatoeuro(_coutarticle_, _fraislivraison_, _tva_) + parseFloat(_fraislivraison_))) * parseFloat(quantitvendu.value);
+    let frais = (parseFloat(_prixvente_) + parseFloat(_fraislivraisonme_)) - VersementEbay(_prixvente_, _fraislivraisonme_);
+    fraiss.innerHTML = 'FRAIS: ' + '<span style="color: red">' + parseFloat(frais).toFixed(3) + '€</span>';
+    benefise.innerHTML = 'BÉNÉFICE TOTAL: ' + '<span style="color: red">' + parseFloat(benefisse).toFixed(3) + '€</span>';
 }
