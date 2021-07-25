@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-i45gaf+w%e70^=w9e^xllst%gssg&yk#a9%hyr4(0$u6y2j=z1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['managerebayprojet.herokuapp.com', 'localhost',]
+ALLOWED_HOSTS = ['127.0.0.1', 'managerebayprojet.herokuapp.com',]
 
 
 # Application definition
