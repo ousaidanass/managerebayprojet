@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'managerebayapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'managerebayprojetdb',
+        'NAME': 'dd7vg1re9sq17o',
         'USER': 'lubmsihkoxhdnb',
         'PASSWORD': 'f2ff908faa3a81449834786016d28c31691a90c4cbf22c8800c0d43f4ccb933a',
         'HOST': 'ec2-3-224-7-166.compute-1.amazonaws.com',
