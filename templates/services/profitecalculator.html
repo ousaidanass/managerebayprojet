@@ -102,8 +102,8 @@
           <div class="card shadow-sm" style="height: 116px;">
             <div class="card-body">
                 <input type="text" id="coutarticle" name="name" required minlength="4" maxlength="8" size="15"> <b>+</b>
-                <input type="text" id="tva" name="name" required minlength="4" maxlength="8" size="15">
-              <p class="card-text">Coût de l’article &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tva %</p>
+                <input type="number" id="tva" name="name" required minlength="4" min="0" maxlength="8" size="15">
+              <p class="card-text">Coût de l’article chez fournisseur &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tva chez fournisseur %</p>
             </div>
           </div>
         </div>
@@ -118,8 +118,8 @@
         <div class="col">
           <div class="card shadow-sm" style="height: 116px;">
             <div class="card-body">
-                <input type="text" id="quantitvendu" name="name" required minlength="4" maxlength="8" size="15">
-              <p class="card-text">Quantité vendue</p>
+                <input type="number" id="quantitvendu" value="1" name="name" required minlength="4" min="1" maxlength="8" size="15">
+              <p class="card-text">Quantité à vendre</p>
             </div>
           </div>
         </div>
