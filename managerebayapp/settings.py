@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-i45gaf+w%e70^=w9e^xllst%gssg&yk#a9%hyr4(0$u6y2j=z1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'managerebayprojet.herokuapp.com',]
+ALLOWED_HOSTS = ['127.0.0.1', 'managerebayprojet.herokuapp.com', 'localhost',]
 
 
 # Application definition
@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'managerebayapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'managerebayprojetdb',
@@ -85,8 +85,18 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
-}
+}"""
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'managerebayprojetdb',
+        'USER': 'lubmsihkoxhdnb',
+        'PASSWORD': 'f2ff908faa3a81449834786016d28c31691a90c4cbf22c8800c0d43f4ccb933a',
+        'HOST': 'ec2-3-224-7-166.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Service
 
+
 def home(request):
     services = Service.objects
     return render(request, 'home.html', {'services': services})
